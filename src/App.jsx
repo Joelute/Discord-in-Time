@@ -49,7 +49,7 @@ function App() {
       </DateDropdownSection>
       <ExampleSection>
         <ExampleContainer>
-          <Profile src={ProfilePic}></Profile>
+          <Profile src={ProfilePic} alt='Example Profile Picture'></Profile>
           <ExampleTextContainer>
             <ExampleName>Joelute</ExampleName>
             <ExampleText>{currentDate.currDate}</ExampleText>
