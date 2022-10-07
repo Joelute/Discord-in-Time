@@ -20,14 +20,32 @@ function App() {
   return (
     <Container>
       <DateDropdownSection>
-        <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
-        <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
-        <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
+        <DateDropdownContainer>
+          <DropdownLabel>Year</DropdownLabel>
+          <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
+        <DateDropdownContainer>
+          <DropdownLabel>Month</DropdownLabel>
+          <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
+        <DateDropdownContainer>
+          <DropdownLabel>Date</DropdownLabel>
+          <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
       </DateDropdownSection>
       <DateDropdownSection>
-        <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
-        <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
-        <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
+        <DateDropdownContainer>
+          <DropdownLabel>Hour</DropdownLabel>
+          <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
+        <DateDropdownContainer>
+          <DropdownLabel>Minute</DropdownLabel>
+          <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
+        <DateDropdownContainer>
+          <DropdownLabel>Second</DropdownLabel>
+          <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
+        </DateDropdownContainer>
       </DateDropdownSection>
       <ExampleSection>
         <ExampleContainer>
@@ -77,6 +95,9 @@ const DateDropdownSection = styled.section`
   padding: 1em 0;
 `
 
+const DateDropdownContainer = styled.div`
+`
+
 const ResultBox = styled.section`
   width: 100%;
   border-radius: 10px;
@@ -124,6 +145,13 @@ const ExampleText = styled.h1`
   background-color: #393D41;
   color: #EBEBEB;
   border-radius: 5px;
+`
+
+const DropdownLabel = styled.h1`
+  font-size: 1rem;
+  color: #EBEBEB;
+  letter-spacing: 2px;
+  padding:0.2em 0.5em;
 `
 
 

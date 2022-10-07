@@ -1,8 +1,5 @@
 const StyledSelect = {
-    option: (provided, state) => ({
-        ...provided,
-        padding: 5,
-    }),
+    
     container: (provided) => ({
         ...provided,
         color: '#EBEBEB',
@@ -50,6 +47,7 @@ const StyledSelect = {
     }),
 
     option: (provided, state) => ({
+        ...provided,
         padding: '1em',
         backgroundColor: state.isSelected? '#393D41': '#2C2F33',
         ':hover': {
