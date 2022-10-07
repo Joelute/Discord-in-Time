@@ -63,7 +63,7 @@ function useDate () {
         
         
         //calculate years
-        const years = Math.floor(diffInMilliSeconds / 29030400)*isNegative;
+        const years = Math.floor(diffInMilliSeconds / 31536000)*isNegative;
 
         if (years > 1) {
             formatString = `In ${years} years`
