@@ -183,7 +183,6 @@ function useDate () {
         const timestamp = Date.parse(newDate)/1000
 
         const currDate = getDate(inputDate, dateType)
-        console.log(currDate)
 
         setCurrentDate(prevState => {
             return {

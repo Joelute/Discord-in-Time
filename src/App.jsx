@@ -15,8 +15,6 @@ function App() {
 
   const {inputDate, currentDate, dateType, handleDate, handleType} = useDate()
 
-  console.log(currentDate.currDate)
-
   return (
     <Container>
       <DateDropdownSection>
