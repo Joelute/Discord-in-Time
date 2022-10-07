@@ -1,5 +1,6 @@
-import useDate from "../useDate"
+import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
+
 
 export default function YearDropdown({inputDate, handleDate}) {
 
@@ -15,17 +16,19 @@ export default function YearDropdown({inputDate, handleDate}) {
 
     const allOptionElement = getAllOption().map(currentYear => {
         return(
-            <option value={currentYear}>{currentYear}</option>
+            {
+                value: currentYear,
+                label: currentYear,
+                name: 'year'
+            }
         )
     })
 
     return(
         <div>
-            <StyledSelect name='year' value={inputDate.year} onChange={e => handleDate(e)}>
-                {allOptionElement}
-            </StyledSelect>
+            <Select options={allOptionElement} styles={StyledSelect} value={allOptionElement.find(obj => obj.value === inputDate.year)} name='year' onChange={handleDate}>
+            </Select>
         </div>
     )
-
-
 }
+

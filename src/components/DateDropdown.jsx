@@ -1,4 +1,4 @@
-import useDate from "../useDate"
+import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
 
 export default function DateDropdown({inputDate, handleDate}) {
@@ -10,14 +10,15 @@ export default function DateDropdown({inputDate, handleDate}) {
     }
 
     const allOptionElement = getAllOption().map((currentDay, index) => {
-        return(
-            <option value={index+1}>{index+1}</option>
-        )
+        return {
+            value: index + 1,
+            label: index + 1,
+            name: 'date'
+        } 
     })
 
     return(
-        <StyledSelect name = 'date' value={inputDate.date} onChange={e => handleDate(e)}>
-            {allOptionElement}
-        </StyledSelect>
+        <Select options={allOptionElement} styles={StyledSelect} value={allOptionElement.find(obj => obj.value === inputDate.date)} name='date' onChange={handleDate}>
+        </Select>
     )
 }
