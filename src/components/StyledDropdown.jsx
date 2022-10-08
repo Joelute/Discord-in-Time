@@ -28,7 +28,6 @@ const StyledSelect = {
         backgroundColor: '#2C2F33',
         margin: '2px 0',
         borderRadius: '0 0 10px 10px',
-        
     }),
 
     valueContainer: (provided) => ({
@@ -41,7 +40,7 @@ const StyledSelect = {
     singleValue: (provided) => ({
         ...provided,
         margin: 0,
-        color: '#B3B5BD',
+        color: '#EBEBEB',
         fontSize: '1.3rem'
         
     }),

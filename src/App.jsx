@@ -1,5 +1,5 @@
 
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import DateDropdown from './components/DateDropdown'
 import MonthDropdown from './components/MonthDropdown'
 import YearDropdown from './components/YearDropdown'
@@ -16,50 +16,85 @@ function App() {
   const {inputDate, currentDate, dateType, handleDate, handleType} = useDate()
 
   return (
-    <Container>
-      <DateDropdownSection>
-        <DateDropdownContainer>
-          <DropdownLabel>Year</DropdownLabel>
-          <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-        <DateDropdownContainer>
-          <DropdownLabel>Month</DropdownLabel>
-          <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-        <DateDropdownContainer>
-          <DropdownLabel>Date</DropdownLabel>
-          <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-      </DateDropdownSection>
-      <DateDropdownSection>
-        <DateDropdownContainer>
-          <DropdownLabel>Hour</DropdownLabel>
-          <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-        <DateDropdownContainer>
-          <DropdownLabel>Minute</DropdownLabel>
-          <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-        <DateDropdownContainer>
-          <DropdownLabel>Second</DropdownLabel>
-          <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
-        </DateDropdownContainer>
-      </DateDropdownSection>
-      <ExampleSection>
-        <ExampleContainer>
-          <Profile src={ProfilePic} alt='Example Profile Picture'></Profile>
-          <ExampleTextContainer>
-            <ExampleName>Joelute</ExampleName>
-            <ExampleText>{currentDate.currDate}</ExampleText>
-          </ExampleTextContainer>
-        </ExampleContainer>
-        <TypeDropdown dateType={dateType} handleType={handleType}/>
-      </ExampleSection>
-      
-      <ResultBox>&lt;t:{currentDate.timestamp}{dateType}&gt;</ResultBox>
-    </Container>
+    <div>
+      <Navbar>
+        <NavbarLogo>Discord</NavbarLogo> In Time
+      </Navbar>
+      <Container>
+        <DateDropdownSection>
+          <DateDropdownContainer>
+            <DropdownLabel>Year</DropdownLabel>
+            <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+          <DateDropdownContainer>
+            <DropdownLabel>Month</DropdownLabel>
+            <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+          <DateDropdownContainer>
+            <DropdownLabel>Date</DropdownLabel>
+            <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+        </DateDropdownSection>
+        <DateDropdownSection>
+          <DateDropdownContainer>
+            <DropdownLabel>Hour</DropdownLabel>
+            <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+          <DateDropdownContainer>
+            <DropdownLabel>Minute</DropdownLabel>
+            <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+          <DateDropdownContainer>
+            <DropdownLabel>Second</DropdownLabel>
+            <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
+          </DateDropdownContainer>
+        </DateDropdownSection>
+        <ExampleSection>
+          <ExampleContainer>
+            <Profile src={ProfilePic} alt='Example Profile Picture'></Profile>
+            <ExampleTextContainer>
+              <ExampleName>Joelute</ExampleName>
+              <ExampleText>{currentDate.currDate}</ExampleText>
+            </ExampleTextContainer>
+          </ExampleContainer>
+          <TypeDropdownContainer>
+            <TypeDropdown dateType={dateType} handleType={handleType}/>
+          </TypeDropdownContainer>
+        </ExampleSection>
+        
+        <ResultBox>&lt;t:{currentDate.timestamp}{dateType}&gt;</ResultBox>
+      </Container>
+    </div>
   )
 }
+
+const Navbar = styled.nav`
+  height: 2.2em;
+  width: 100%;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  color: #EBEBEB;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  transition: color 1s ease, background-color 1s ease;
+  
+  :hover,
+  :focus {
+    background-color:#9EAEE5;
+    color: white;
+  }
+`
+
+const NavbarLogo = styled.h1`
+  color: inherit;
+  font-size:inherit;
+  padding: 0.3em;
+  background-color: #7289DA;
+  border-radius: 1rem;
+  margin-right: 0.2em;
+`
 
 const Container = styled.main`
   display:flex;
@@ -91,6 +126,10 @@ const DateDropdownSection = styled.section`
   justify-content: space-between;
   width: 100%;
   padding: 1em 0;
+
+  @media(max-width:600px) {
+    flex-direction: column;
+  }
 `
 
 const DateDropdownContainer = styled.div`
@@ -118,6 +157,12 @@ const ExampleSection = styled.section`
   width: 100%;
   align-items: center;
   padding: 5em 0;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: start;
+    padding:2em 0;
+  }
 `
 
 const ExampleContainer = styled.div`
@@ -147,10 +192,20 @@ const ExampleText = styled.h1`
 
 const DropdownLabel = styled.h1`
   font-size: 1rem;
-  color: #EBEBEB;
+  color: #B3B5BD;
   letter-spacing: 2px;
   padding:0.2em 0.5em;
 `
+
+const TypeDropdownContainer = styled.div`
+  @media(max-width: 600px) {
+    width: 100%;
+    padding: 1em 0;
+  }
+`
+
+
+
 
 
 export default App
