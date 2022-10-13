@@ -1,0 +1,27 @@
+.nav {
+    height: 2.2em;
+    width: 100%;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    color: #EBEBEB;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    transition: color 1s ease, background-color 1s ease;
+}
+
+.nav:hover,
+.nav:focus {
+    background-color:#9EAEE5;
+    color: white;
+}
+
+.nav-logo {
+    color: inherit;
+    font-size:inherit;
+    padding: 0.3em;
+    background-color: #7289DA;
+    border-radius: 1rem;
+    margin-right: 0.2em;
+}

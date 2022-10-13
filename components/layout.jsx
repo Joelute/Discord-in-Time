@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styled from 'styled-components'
+import styles from '../styles/layout.module.css'
 
 export default function Layout({ children }) {
     return(
@@ -19,38 +19,10 @@ export default function Layout({ children }) {
                 <meta name="twitter:description" content="Create your Discord timestamps here! Discord in Time generates beatiful dynamic date-time display in your Discord messages. Choose your time and copy the code below."/>
                 <meta name="twitter:card" content="summary"/>
             </Head>
-            <Navbar>
-                <NavbarLogo>Discord</NavbarLogo> In Time
-            </Navbar>
+            <nav className={styles.nav}>
+                <h1 className={styles['nav-logo']}>Discord</h1> In Time
+            </nav>
             {children}
         </div>
     )
 }
-
-const Navbar = styled.nav`
-  height: 2.2em;
-  width: 100%;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
-  display:flex;
-  align-items: center;
-  justify-content:center;
-  color: #EBEBEB;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  transition: color 1s ease, background-color 1s ease;
-  
-  :hover,
-  :focus {
-    background-color:#9EAEE5;
-    color: white;
-  }
-`
-
-const NavbarLogo = styled.h1`
-  color: inherit;
-  font-size:inherit;
-  padding: 0.3em;
-  background-color: #7289DA;
-  border-radius: 1rem;
-  margin-right: 0.2em;
-`

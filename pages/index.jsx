@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Layout from '../components/layout'
-import styled from 'styled-components'
 import DateDropdown from '../components/DateDropdown'
 import MonthDropdown from '../components/MonthDropdown'
 import YearDropdown from '../components/YearDropdown'
@@ -9,7 +8,7 @@ import MinuteDropdown from '../components/MinuteDropdown'
 import SecondDropdown from '../components/SecondDropdown'
 import TypeDropdown from '../components/TypeDropdown'
 import useDate from '../utils/useDate'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Index.module.css'
 
 export default function Home() {
 
@@ -17,163 +16,54 @@ export default function Home() {
 
   return (
     <Layout>
-      <Container>
-        <DateDropdownSection>
-          <DateDropdownContainer>
-            <DropdownLabel>Year</DropdownLabel>
+      <main className={styles.container}>
+        <section className={styles.date}>
+          <div>
+            <h3 className={styles['date-label']}>Year</h3>
             <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-          <DateDropdownContainer>
-            <DropdownLabel>Month</DropdownLabel>
+          </div>
+          <div>
+            <h3 className={styles['date-label']}>Month</h3>
             <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-          <DateDropdownContainer>
-            <DropdownLabel>Date</DropdownLabel>
+          </div>
+          <div>
+            <h3 className={styles['date-label']}>Date</h3>
             <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-        </DateDropdownSection>
-        <DateDropdownSection>
-          <DateDropdownContainer>
-            <DropdownLabel>Hour</DropdownLabel>
+          </div>
+        </section>
+        <section className={styles.date}>
+          <div>
+            <h3 className={styles['date-label']}>Hour</h3>
             <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-          <DateDropdownContainer>
-            <DropdownLabel>Minute</DropdownLabel>
+          </div>
+          <div>
+            <h3 className={styles['date-label']}>Minute</h3>
             <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-          <DateDropdownContainer>
-            <DropdownLabel>Second</DropdownLabel>
+          </div>
+          <div>
+            <h3 className={styles['date-label']}>Second</h3>
             <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </DateDropdownContainer>
-        </DateDropdownSection>
-        <ExampleSection>
-          <ExampleContainer>
-            <Profile>
+          </div>
+        </section>
+        <section className={styles.example}>
+          <div className={styles['example-container']}>
+            <div className={styles['profile-container']}>
               <Image priority src='/pfp.jpg' alt='Example Profile Picture' width={60} height={60} className={styles.profile} layout='responsive'></Image>
-            </Profile>
-            <ExampleTextContainer>
-              <ExampleName>Joelute</ExampleName>
-              <ExampleText>{currentDate.currDate}</ExampleText>
-            </ExampleTextContainer>
-          </ExampleContainer>
-          <TypeDropdownContainer>
+            </div>
+            <div className={styles['example-text-container']}>
+              <h2 className={styles['example-name']}>Joelute</h2>
+              <h2 className={styles['example-text']}>{currentDate.currDate}</h2>
+            </div>
+          </div>
+          <div className={styles['type-dropdown']}>
             <TypeDropdown dateType={dateType} handleType={handleType}/>
-          </TypeDropdownContainer>
-        </ExampleSection>
+          </div>
+        </section>
         
-        <ResultBox>&lt;t:{currentDate.timestamp}{dateType}&gt;</ResultBox>
-      </Container>
+        <section className={styles.result}>&lt;t:{currentDate.timestamp}{dateType}&gt;</section>
+      </main>
     </Layout>
   )
 }
-
-const Container = styled.main`
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 5em auto;
-  
-
-  @media (min-width:1300px) {
-    width:45%
-  }
-
-  @media (min-width: 1000px) and (max-width: 1300px) {
-    width:55%
-  }
-
-  @media(min-width: 800px) and (max-width:1000px){
-    width: 70%
-  }
-
-  @media(max-width: 800px) {
-    width: 90%
-  }
-`
-
-const DateDropdownSection = styled.section`
-  display:flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1em 0;
-
-  @media(max-width:600px) {
-    flex-direction: column;
-  }
-`
-
-const DateDropdownContainer = styled.div`
-`
-
-const ResultBox = styled.section`
-  width: 100%;
-  border-radius: 10px;
-  color: #EBEBEB;
-  background-color: #393D41;
-  font-size: 1.2rem;
-  padding:.6em;
-  border-radius: 10px;
-`
-
-const ExampleSection = styled.section`
-  display:flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  padding: 5em 0;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: start;
-    padding:2em 0;
-  }
-`
-
-const Profile = styled.div`
-  width: 60px;
-  height: 60px;
-  min-width: 60px;
-  min-height: 60px;
-`
-
-const ExampleContainer = styled.div`
-  display:flex;
-  align-items:center;
-`
-
-const ExampleTextContainer = styled.div`
-  padding-left: 1em;
-  font-size: 1.3rem;
-`
-
-const ExampleName = styled.h1`
-  font-size: 1.3rem;
-  padding-top:  .2em;
-  color: #EBEBEB;
-`
-
-const ExampleText = styled.h1`
-  font-size: 1.3rem;
-  margin-top: .2em;
-  padding: .2em;
-  background-color: #393D41;
-  color: #EBEBEB;
-  border-radius: 5px;
-`
-
-const DropdownLabel = styled.h1`
-  font-size: 1rem;
-  color: #B3B5BD;
-  letter-spacing: 2px;
-  padding:0.2em 0.5em;
-`
-
-const TypeDropdownContainer = styled.div`
-  @media(max-width: 600px) {
-    width: 100%;
-    padding: 1em 0;
-  }
-`
 
 
