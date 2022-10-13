@@ -1,25 +1,22 @@
+import Image from 'next/image'
+import Layout from '../components/layout'
+import styled from 'styled-components'
+import DateDropdown from '../components/DateDropdown'
+import MonthDropdown from '../components/MonthDropdown'
+import YearDropdown from '../components/YearDropdown'
+import HourDropdown from '../components/HourDropdown'
+import MinuteDropdown from '../components/MinuteDropdown'
+import SecondDropdown from '../components/SecondDropdown'
+import TypeDropdown from '../components/TypeDropdown'
+import useDate from '../utils/useDate'
+import styles from '../styles/Home.module.css'
 
-import styled, { keyframes } from 'styled-components'
-import DateDropdown from './components/DateDropdown'
-import MonthDropdown from './components/MonthDropdown'
-import YearDropdown from './components/YearDropdown'
-import HourDropdown from './components/HourDropdown'
-import MinuteDropdown from './components/MinuteDropdown'
-import SecondDropdown from './components/SecondDropdown'
-import TypeDropdown from './components/TypeDropdown'
-import useDate from './useDate'
-import ProfilePic from './assets/pfp.jpg'
-
-
-function App() {
+export default function Home() {
 
   const {inputDate, currentDate, dateType, handleDate, handleType} = useDate()
 
   return (
-    <div>
-      <Navbar>
-        <NavbarLogo>Discord</NavbarLogo> In Time
-      </Navbar>
+    <Layout>
       <Container>
         <DateDropdownSection>
           <DateDropdownContainer>
@@ -51,7 +48,9 @@ function App() {
         </DateDropdownSection>
         <ExampleSection>
           <ExampleContainer>
-            <Profile src={ProfilePic} alt='Example Profile Picture'></Profile>
+            <Profile>
+              <Image priority src='/pfp.jpg' alt='Example Profile Picture' width={60} height={60} className={styles.profile} layout='responsive'></Image>
+            </Profile>
             <ExampleTextContainer>
               <ExampleName>Joelute</ExampleName>
               <ExampleText>{currentDate.currDate}</ExampleText>
@@ -64,37 +63,9 @@ function App() {
         
         <ResultBox>&lt;t:{currentDate.timestamp}{dateType}&gt;</ResultBox>
       </Container>
-    </div>
+    </Layout>
   )
 }
-
-const Navbar = styled.nav`
-  height: 2.2em;
-  width: 100%;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
-  display:flex;
-  align-items: center;
-  justify-content:center;
-  color: #EBEBEB;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  transition: color 1s ease, background-color 1s ease;
-  
-  :hover,
-  :focus {
-    background-color:#9EAEE5;
-    color: white;
-  }
-`
-
-const NavbarLogo = styled.h1`
-  color: inherit;
-  font-size:inherit;
-  padding: 0.3em;
-  background-color: #7289DA;
-  border-radius: 1rem;
-  margin-right: 0.2em;
-`
 
 const Container = styled.main`
   display:flex;
@@ -145,12 +116,6 @@ const ResultBox = styled.section`
   border-radius: 10px;
 `
 
-const Profile = styled.img.attrs(props => ({src: props.src}))`
-  max-width: 60px;
-  max-height: 60px;
-  border-radius: 50%;
-`
-
 const ExampleSection = styled.section`
   display:flex;
   justify-content: space-between;
@@ -165,13 +130,20 @@ const ExampleSection = styled.section`
   }
 `
 
+const Profile = styled.div`
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+`
+
 const ExampleContainer = styled.div`
   display:flex;
   align-items:center;
 `
 
 const ExampleTextContainer = styled.div`
-  padding: 0 1em;
+  padding-left: 1em;
   font-size: 1.3rem;
 `
 
@@ -205,7 +177,3 @@ const TypeDropdownContainer = styled.div`
 `
 
 
-
-
-
-export default App

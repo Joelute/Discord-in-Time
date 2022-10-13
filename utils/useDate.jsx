@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {allOption, weekArray} from './utils/DateArray'
+import {allOption, weekArray} from './DateArray'
 
 function useDate () {
 
