@@ -8,7 +8,7 @@ import MinuteDropdown from '../components/MinuteDropdown'
 import SecondDropdown from '../components/SecondDropdown'
 import TypeDropdown from '../components/TypeDropdown'
 import useDate from '../utils/useDate'
-import styles from '../styles/Index.module.css'
+import styles from '../styles/index.module.css'
 
 export default function Home() {
 
