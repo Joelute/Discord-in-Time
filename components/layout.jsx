@@ -18,6 +18,7 @@ export default function Layout({ children }) {
                 <meta name="twitter:title" content="Discord Timestamp Generator"/>
                 <meta name="twitter:description" content="Create your Discord timestamps here! Discord in Time generates beatiful dynamic date-time display in your Discord messages. Choose your time and copy the code below."/>
                 <meta name="twitter:card" content="summary"/>
+                <meta name="google-site-verification" content="xG81VBeSOqYLAf49yQUaetkkO6naKgDgbxui6zO4Ono"/>
             </Head>
             <nav className={styles.nav}>
                 <h1 className={styles['nav-logo']}>Discord</h1> In Time
