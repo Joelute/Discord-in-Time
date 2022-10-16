@@ -1,12 +1,8 @@
 import Image from 'next/image'
-import Layout from '../components/layout'
-import DateDropdown from '../components/DateDropdown'
-import MonthDropdown from '../components/MonthDropdown'
-import YearDropdown from '../components/YearDropdown'
-import HourDropdown from '../components/HourDropdown'
-import MinuteDropdown from '../components/MinuteDropdown'
-import SecondDropdown from '../components/SecondDropdown'
-import TypeDropdown from '../components/TypeDropdown'
+import Layout from '../components/layouts/layout'
+import DateSection from '../components/layouts/DateSection'
+import TimeSection from '../components/layouts/TimeSection'
+import TypeDropdown from '../components/elements/TypeDropdown'
 import useDate from '../utils/useDate'
 import styles from '../styles/index.module.css'
 
@@ -17,34 +13,8 @@ export default function Home() {
   return (
     <Layout>
       <main className={styles.container}>
-        <section className={styles.date}>
-          <div>
-            <h3 className={styles['date-label']}>Year</h3>
-            <YearDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-          <div>
-            <h3 className={styles['date-label']}>Month</h3>
-            <MonthDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-          <div>
-            <h3 className={styles['date-label']}>Date</h3>
-            <DateDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-        </section>
-        <section className={styles.date}>
-          <div>
-            <h3 className={styles['date-label']}>Hour</h3>
-            <HourDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-          <div>
-            <h3 className={styles['date-label']}>Minute</h3>
-            <MinuteDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-          <div>
-            <h3 className={styles['date-label']}>Second</h3>
-            <SecondDropdown inputDate={inputDate} handleDate={handleDate}/>
-          </div>
-        </section>
+        <DateSection inputDate={inputDate} handleDate={handleDate}></DateSection>
+        <TimeSection inputDate={inputDate} handleDate={handleDate}></TimeSection>
         <section className={styles.example}>
           <div className={styles['example-container']}>
             <div className={styles['profile-container']}>
