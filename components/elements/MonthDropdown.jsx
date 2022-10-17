@@ -1,6 +1,6 @@
 import {StyledSelect} from "./StyledDropdown";
 import Select from 'react-select'
-import {allOption} from '../utils/DateArray'
+import {allOption} from '../../utils/DateArray'
 
 export default function MonthDropdown({inputDate, handleDate}) {
 
