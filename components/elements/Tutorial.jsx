@@ -1,4 +1,4 @@
-import styles from '../styles/tutorial.module.css'
+import styles from '../../styles/tutorial.module.css'
 
 export default function Tutorial ({tutorial, className}) {
     return(

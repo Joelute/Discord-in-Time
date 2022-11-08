@@ -24,6 +24,7 @@ export default function Layout({ intro, handleIntro, children}) {
                 <meta name="google-site-verification" content="xG81VBeSOqYLAf49yQUaetkkO6naKgDgbxui6zO4Ono"/>
             </Head>
             <nav className={styles.nav}>
+                <div className={styles.intro}></div>
                 <div className={styles.container}>
                     <h1 className={styles['nav-logo']}>Discord</h1> In Time
                 </div>
