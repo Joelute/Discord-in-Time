@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/layout.module.css'
 
-export default function Layout({ children }) {
+export default function Layout({ intro, handleIntro, children}) {
     return(
         <div>
             <Head>
@@ -21,7 +21,13 @@ export default function Layout({ children }) {
                 <meta name="google-site-verification" content="xG81VBeSOqYLAf49yQUaetkkO6naKgDgbxui6zO4Ono"/>
             </Head>
             <nav className={styles.nav}>
-                <h1 className={styles['nav-logo']}>Discord</h1> In Time
+                <div className={styles.container}>
+                    <h1 className={styles['nav-logo']}>Discord</h1> In Time
+                </div>
+                {intro.isIntro ? 
+                    <div className={styles.show} onClick={() => handleIntro()}><i className={`uil uil-times-circle ${styles.intro}`}></i></div>:
+                    <div onClick={() => handleIntro()}><i className={`uil uil-question-circle ${styles.intro}`}></i></div>
+                }
             </nav>
             {children}
         </div>

@@ -2,7 +2,7 @@ import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
 
 
-export default function YearDropdown({inputDate, handleDate}) {
+export default function YearDropdown({inputDate, handleDate, disabled}) {
 
     let totalOption = 100;
 
@@ -26,7 +26,13 @@ export default function YearDropdown({inputDate, handleDate}) {
 
     return(
         <div>
-            <Select options={allOptionElement} styles={StyledSelect} value={allOptionElement.find(obj => obj.value === inputDate.year)} name='year' onChange={handleDate}>
+            <Select 
+                options={allOptionElement} 
+                styles={StyledSelect} 
+                value={allOptionElement.find(obj => obj.value === inputDate.year)} 
+                name='year' 
+                onChange={handleDate} 
+                isDisabled={disabled}>
             </Select>
         </div>
     )
