@@ -25,3 +25,22 @@
     border-radius: 1rem;
     margin-right: 0.2em;
 }
+.container {
+    
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    color: #EBEBEB;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.intro {
+    font-size: 1.9rem;
+    margin-right: 0.5em;
+}
+
+.show {
+    z-index: 3;
+}

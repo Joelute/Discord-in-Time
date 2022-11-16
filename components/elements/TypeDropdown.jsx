@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
 
-export default function TypeDropdown({dateType, handleType}) {
+export default function TypeDropdown({dateType, handleType, disabled}) {
 
     const allOptionElement =[ 
         {
@@ -42,7 +42,13 @@ export default function TypeDropdown({dateType, handleType}) {
     ]
 
     return (
-        <Select options={allOptionElement} styles={StyledSelect} value={dateType ? allOptionElement.find(obj => obj.value === dateType) : allOptionElement.find(obj => obj.label === 'Default')} name='type' onChange={handleType}>
+        <Select
+            options={allOptionElement}
+            styles={StyledSelect}
+            value={dateType ? allOptionElement.find(obj => obj.value === dateType) : allOptionElement.find(obj => obj.label === 'Default')}
+            name='type'
+            onChange={handleType}
+            isDisabled={disabled}>
         </Select>
     )
 }

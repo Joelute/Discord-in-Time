@@ -32,7 +32,7 @@
   display:flex;
   justify-content: space-between;
   width: 100%;
-  padding: 1em 0;
+  padding: 1em 2em;
 }
 
 .example {
@@ -46,6 +46,7 @@
 .example-container {
   display:flex;
   align-items:center;
+  padding: 2em 2em;
 }
 
 .example-text-container {
@@ -64,6 +65,15 @@
   border-radius: 50%;
 }
 
+.type-dropdown {
+  padding: 2em 2em;
+}
+
+.result-container {
+  padding: 1em 2em;
+  width: 100%;
+}
+
 .result {
   width: 100%;
   border-radius: 10px;
@@ -74,29 +84,70 @@
   border-radius: 10px;
 }
 
-
-@media (min-width:1300px) {
-  .container {
-    width:45%
-  }
+.blackout {
+  /* for IE */
+  box-shadow: 0 0 0 1000px rgba(0,0,0,.5);
+  /* for real browsers */
+  box-shadow: 0 0 0 200vmax rgba(0,0,0,.9);
+  border-radius: 10px;
+  z-index: 2;
+  pointer-events: none;
+  transition: box-shadow 1s ease;
 }
 
-@media (min-width: 1000px) and (max-width: 1300px) {
+.tutorial-1 {
+  position: absolute;
+  left: 5em;
+  top: 18em;
+}
+
+.tutorial-2 {
+  position: absolute;
+  right: 5em;
+  top: 25em;
+}
+
+.tutorial-3 {
+  position: absolute;
+  left: 5em;
+  top: 38em;
+}
+
+.tutorial-4 {
+  position: absolute;
+  right: 5em;
+  top: 38em;
+}
+
+.tutorial-5 {
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: 30em;
+}
+
+@media (min-width:1300px) {
   .container {
     width:55%
   }
 }
 
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .container {
+    width:65%
+  }
+}
+
 @media(min-width: 800px) and (max-width:1000px){
   .container {
-    width: 70%
+    width: 80%
   }
 }
 
   
 @media(max-width: 800px) {
   .container {
-    width: 90%
+    width: 95%
   }
 }
 
@@ -113,7 +164,9 @@
 
   .type-dropdown {
     width: 100%;
-    padding: 1em 0;
+  }
+  .container {
+    margin-bottom: 10em;
   }
 }
 

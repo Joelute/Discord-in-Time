@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
 
-export default function HourDropdown({inputDate, handleDate}) {
+export default function HourDropdown({inputDate, handleDate, disabled}) {
 
     const getAllOption = () => {
         const allOption = new Array(24).fill('')
@@ -17,7 +17,13 @@ export default function HourDropdown({inputDate, handleDate}) {
     })
 
     return(
-        <Select options={allOptionElement} styles={StyledSelect} value={allOptionElement.find(obj => obj.value === inputDate.hour)} name='hour' onChange={handleDate}>
+        <Select 
+            options={allOptionElement} 
+            styles={StyledSelect} 
+            value={allOptionElement.find(obj => obj.value === inputDate.hour)} 
+            name='hour' 
+            onChange={handleDate}
+            isDisabled={disabled}>
         </Select>
     )
 }

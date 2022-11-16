@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import {StyledSelect} from "./StyledDropdown";
 
-export default function SecondDropdown({inputDate, handleDate}) {
+export default function SecondDropdown({inputDate, handleDate, disabled}) {
 
     const getAllOption = () => {
         const allOption = new Array(60).fill('')
@@ -17,7 +17,13 @@ export default function SecondDropdown({inputDate, handleDate}) {
     })
 
     return(
-        <Select options={allOptionElement} styles={StyledSelect} value={allOptionElement.find(obj => obj.value === inputDate.second)} name='second' onChange={handleDate}>
+        <Select 
+            options={allOptionElement} 
+            styles={StyledSelect} 
+            value={allOptionElement.find(obj => obj.value === inputDate.second)} 
+            name='second' 
+            onChange={handleDate}
+            isDisabled={disabled}>
         </Select>
     )
 }
