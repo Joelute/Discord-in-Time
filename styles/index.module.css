@@ -25,7 +25,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5em auto;
+  margin: 0 auto;
+  max-width: 1056px;
+  padding: 5em 0 12em 0;
 }
 
 .date {
@@ -126,31 +128,6 @@
   top: 30em;
 }
 
-@media (min-width:1300px) {
-  .container {
-    width:55%
-  }
-}
-
-@media (min-width: 1000px) and (max-width: 1300px) {
-  .container {
-    width:65%
-  }
-}
-
-@media(min-width: 800px) and (max-width:1000px){
-  .container {
-    width: 80%
-  }
-}
-
-  
-@media(max-width: 800px) {
-  .container {
-    width: 95%
-  }
-}
-
 @media(max-width:600px) {
   .date {
     flex-direction: column;
@@ -166,7 +143,7 @@
     width: 100%;
   }
   .container {
-    margin-bottom: 10em;
+    padding-bottom: 10em;
   }
 }
 
