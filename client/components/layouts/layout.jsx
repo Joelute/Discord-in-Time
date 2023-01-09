@@ -1,9 +1,18 @@
 import Head from 'next/head'
+import { useState } from 'react'
+import Link from 'next/link'
 import styles from '../../styles/layout.module.css'
 
 export default function Layout({ intro, handleIntro, children}) {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const handleMenu = () => {
+        setIsMenuOpen(prevState => !prevState)
+    }
+
     return(
-        <div>
+        <div className={styles.container}>
             <Head>
                 <meta charSet="UTF-8" />
                 <link rel="icon" type="image/favicon" href="/favicon.ico" />
@@ -24,16 +33,27 @@ export default function Layout({ intro, handleIntro, children}) {
                 <meta name="google-site-verification" content="xG81VBeSOqYLAf49yQUaetkkO6naKgDgbxui6zO4Ono"/>
             </Head>
             <nav className={styles.nav}>
-                <div className={styles.intro}></div>
-                <div className={styles.container}>
+                <div className={styles['logo-container']}>
                     <h1 className={styles['nav-logo']}>Discord</h1> In Time
                 </div>
+                <svg className={styles.menu} width='60px' height='60px' fill='#EBEBEB'  onClick={handleMenu}>
+                    <rect width={'30px'} height='3px' y='18px'></rect>
+                    <rect width={'30px'} height='3px' y='27px'></rect>
+                    <rect width={'30px'} height='3px' y='36px'></rect>
+                </svg>
                 {intro.isIntro ? 
                     <div className={styles.show} onClick={() => handleIntro()}><i className={`uil uil-times-circle ${styles.intro}`}></i></div>:
                     <div onClick={() => handleIntro()}><i className={`uil uil-question-circle ${styles.intro}`}></i></div>
                 }
             </nav>
-            {children}
+            <div className={styles['body-container']}>
+                <aside className={styles.sidebar} aria-expanded={isMenuOpen}>
+                    <Link href={'/'}># Timestamp Generator</Link>
+                    <Link href={'/timestamps'}># My Timestamps</Link>
+                </aside>
+                {children}
+            </div>
+            
         </div>
     )
 }

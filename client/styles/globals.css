@@ -9,6 +9,7 @@
 
 body {
   background: #33363A;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar-track {
