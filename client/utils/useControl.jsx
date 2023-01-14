@@ -8,7 +8,11 @@ function useIntro () {
         section: ''
     })
 
+    const [createNewDate, setCreateNewDate] = useState(false)
+
     const handleIntro = () => {
+
+        setCreateNewDate(prevState => false)
         
         setIntro(prevState => {
             return ({
@@ -16,6 +20,10 @@ function useIntro () {
                 section: 1
             })
         })
+    }
+
+    const handleCreateNewDate = () => {
+        setCreateNewDate(prevState => !prevState)
     }
 
     const nextSection = () => {
@@ -40,7 +48,7 @@ function useIntro () {
         }
     }
 
-    return {intro, handleIntro, nextSection}
+    return {intro, handleIntro, nextSection , handleCreateNewDate, createNewDate}
 }
 
 

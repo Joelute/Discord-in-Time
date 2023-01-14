@@ -4,16 +4,18 @@ import DateSection from '../components/layouts/DateSection'
 import TimeSection from '../components/layouts/TimeSection'
 import TypeDropdown from '../components/elements/TypeDropdown'
 import useDate from '../utils/useDate'
-import useIntro from '../utils/useIntro'
+import useControl from '../utils/useControl'
 import styles from '../styles/index.module.css'
 import Tutorial from '../components/elements/Tutorial'
+import { useState } from 'react'
+import NewDate from '../components/elements/NewDate'
 
 
 export default function Home() {
 
   const {inputDate, currentDate, dateType, handleDate, handleType} = useDate()
 
-  const {intro, handleIntro, nextSection} = useIntro()
+  const {intro, createNewDate, handleIntro, nextSection, handleCreateNewDate} = useControl()
 
   return (
     <Layout intro={intro} handleIntro={handleIntro}>
@@ -75,14 +77,19 @@ export default function Home() {
           <section className={`${styles['result-container']} ${intro.isIntro && intro.section === 5 ? styles.blackout: ''}`}>
             <div className={styles.result}>
               &lt;t:{currentDate.timestamp}{dateType}&gt;
+              <i className="uil uil-plus-circle" onClick={handleCreateNewDate}></i>
             </div>
+            
           </section>
 
           {intro.isIntro && intro.section === 5? 
               <Tutorial className={styles['tutorial-5']} tutorial='Finally, copy and paste the code into Discord!'>
               </Tutorial>
-          :''}
+          :''} 
+          {createNewDate && <NewDate timestamp={currentDate.timestamp} handleCreateNewDate={handleCreateNewDate}></NewDate>}
         </main>
+
+       
       </div>
     </Layout>
   )

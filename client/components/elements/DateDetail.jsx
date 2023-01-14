@@ -33,7 +33,7 @@ const StyledContainer = styled.div`
     display:flex;
 
     @media (max-width: 950px) {
-        width: 100%
+        width: calc(100% - 4em);
     }
 `
 
@@ -43,7 +43,6 @@ const StyledCard = styled.div`
     max-width: 500px;
     max-height: 500px;
     background-color: #33363A;
-    
     border-radius: 10px;
     margin: auto auto;
     z-index: 3;
@@ -53,7 +52,6 @@ const StyledCard = styled.div`
     /* for real browsers */
     box-shadow: 0 0 0 200vmax rgba(0,0,0,.7);
     border-radius: 10px;
-    transition: box-shadow 1s ease;
 `
 
 const StyledBack = styled.div`

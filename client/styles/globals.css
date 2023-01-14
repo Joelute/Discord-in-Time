@@ -10,6 +10,7 @@
 body {
   background: #33363A;
   height: 100vh;
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar-track {

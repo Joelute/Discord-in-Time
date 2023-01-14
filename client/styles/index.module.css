@@ -77,6 +77,8 @@
 }
 
 .result {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   border-radius: 10px;
   color: #EBEBEB;
@@ -84,6 +86,11 @@
   font-size: 1.2rem;
   padding:.6em;
   border-radius: 10px;
+}
+
+.result i {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .blackout {
