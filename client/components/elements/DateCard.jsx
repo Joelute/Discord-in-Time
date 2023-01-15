@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export default function DateCard({id, name, description, timestamp, handleCurrentDate}) {
+    
     return(
         <StyledCard onClick={() => handleCurrentDate(id)}>
             <StyledName>{name}</StyledName>

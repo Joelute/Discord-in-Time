@@ -32,6 +32,30 @@ export default function Timestamps() {
         })
     }
 
+    const updateDateOnChange = (updatedDate) => {
+        setDate(prevState => {
+            return prevState.map(element => {
+                if (element._id == updatedDate.id) {
+                    return {
+                        ...updatedDate,
+                        _id: updatedDate.id
+                    }
+                }
+                return element
+            })
+        })
+    }
+
+    const updateDateOnDelete = (deletedID) => {
+        setDate(prevState => {
+            return prevState.filter(element => {
+                return element._id != deletedID
+            })
+        })
+    }
+
+    
+
     const DateElement = date.map(item => {
         return (
             <DateCard key={item._id} name={item.name} description={item.description} timestamp={item.timestamp} id={item._id} handleCurrentDate={handleCurrentDate}> </DateCard>
@@ -50,11 +74,15 @@ export default function Timestamps() {
 
     useEffect(() => {
         const fetchDate = async() => {
-            const res = await fetch(`https://discordintime.up.railway.app/api/v1/date/${currentDate.id}`)
-            const data = await res.json()
+            let data = date.filter(element => {
+                return currentDate.id == element._id
+            })
+            data = data[0]
             setCurrentDate(prevState => {
                 return {
-                    ...data.data,
+                    name: data.name,
+                    description: data.description,
+                    timestamp: data.timestamp,
                     ...prevState
                 }
             })
@@ -73,7 +101,11 @@ export default function Timestamps() {
                     name={currentDate.name} 
                     description={currentDate.description} 
                     timestamp={currentDate.timestamp} 
-                    handleCurrentDate={handleCurrentDate}>
+                    handleCurrentDate={handleCurrentDate}
+                    updateDateOnChange={updateDateOnChange}
+                    updateDateOnDelete={updateDateOnDelete}
+                >
+                    
                 </DateDetail>}
                 {DateElement}
             </StyledContainer>

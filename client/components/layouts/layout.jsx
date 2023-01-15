@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Link from 'next/link'
 import styles from '../../styles/layout.module.css'
+import { useEffect } from 'react';
 
 export default function Layout({ intro, handleIntro, children}) {
 
@@ -49,7 +50,7 @@ export default function Layout({ intro, handleIntro, children}) {
             <div className={styles['body-container']}>
                 <aside className={styles.sidebar} aria-expanded={isMenuOpen}>
                     <Link href={'/'}># Timestamp Generator</Link>
-                    <Link href={'/timestamps'}># My Timestamps</Link>
+                    <Link href={'/timestamps'}># Public Timestamps</Link>
                 </aside>
                 {children}
             </div>
