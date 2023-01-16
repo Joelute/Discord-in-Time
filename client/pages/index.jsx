@@ -9,9 +9,12 @@ import styles from '../styles/index.module.css'
 import Tutorial from '../components/elements/Tutorial'
 import { useState } from 'react'
 import NewDate from '../components/elements/NewDate'
+import { useSession } from 'next-auth/react'
 
 
 export default function Home() {
+
+  const { data } = useSession()
 
   const {inputDate, currentDate, dateType, handleDate, handleType} = useDate()
 
@@ -48,10 +51,13 @@ export default function Home() {
           <section className={styles.example}>
             <div className={`${styles['example-container']} ${intro.isIntro && intro.section === 3 ? styles.blackout: ''}`}>
               <div className={styles['profile-container']}>
-                <Image priority src='/pfp.jpg' alt='Example Profile Picture' width={60} height={60} className={styles.profile} layout='responsive'></Image>
+                {data?
+                  <img src={data.user.image} alt='Example Profile Picture' className={styles.profile}></img>:
+                  <Image priority src='/pfp.jpg' alt='Example Profile Picture' width={60} height={60} className={styles.profile} layout='responsive'></Image>
+                }
               </div>
               <div className={styles['example-text-container']}>
-                <h2 className={styles['example-name']}>Joelute</h2>
+                <h2 className={styles['example-name']}>{data? data.user.name: 'Joelute'}</h2>
                 <h2 className={styles['example-text']}>{currentDate.currDate}</h2>
               </div>
             </div>

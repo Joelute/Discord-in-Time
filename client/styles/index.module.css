@@ -65,6 +65,8 @@
 
 .profile {
   border-radius: 50%;
+  width: 60px;
+  height: 60px;
 }
 
 .type-dropdown {
@@ -104,21 +106,27 @@
   transition: box-shadow 1s ease;
 }
 
-.tutorial-1 {
+.tutorial-1,
+.tutorial-3 {
   position: absolute;
   left: 25em;
+}
+
+.tutorial-2,
+.tutorial-4 {
+  position: absolute;
+  right: 5em;
+}
+
+.tutorial-1 {
   top: 18em;
 }
 
 .tutorial-2 {
-  position: absolute;
-  right: 5em;
   top: 25em;
 }
 
 .tutorial-3 {
-  position: absolute;
-  left: 25em;
   top: 38em;
 }
 
@@ -133,6 +141,13 @@
   left: auto;
   right: auto;
   top: 30em;
+}
+
+@media(max-width: 950px) {
+  .tutorial-1,
+  .tutorial-3 {
+    left: 5em;
+  }
 }
 
 @media(max-width:600px) {

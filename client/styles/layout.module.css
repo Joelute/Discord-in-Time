@@ -24,7 +24,7 @@
 
 .nav:hover,
 .nav:focus {
-    background-color:#9EAEE5;
+    background-color:#5865f2;
     color: white;
 }
 
@@ -32,9 +32,11 @@
     color: inherit;
     font-size:inherit;
     padding: 0.3em;
-    background-color: #7289DA;
+    background-color: #5865f2;
     border-radius: 1rem;
     margin-right: 0.2em;
+    font-weight: 700;
+    letter-spacing: 0px;
 }
 
 .logo-container {
@@ -55,9 +57,10 @@
 }
 
 .intro {
-    font-size: 1.9rem;
+    font-size: 2rem;
     margin-right: 0.5em;
     cursor: pointer;
+    height: 60px;
 }
 
 .show {
@@ -90,6 +93,27 @@
 
 .sidebar :first-child {
     margin-top: 1.5em;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+
+}
+
+.login {
+    border-radius: 40px;
+    padding: .5em 1em;
+    border: none;
+    font-size: 1rem;
+    transition: .3s ease-out;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.login:hover {
+    color: #5865f2;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, .5);
 }
 
 @media (max-width:950px) {

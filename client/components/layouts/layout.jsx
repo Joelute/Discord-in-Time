@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import styles from '../../styles/layout.module.css'
 import { useEffect } from 'react';
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 export default function Layout({ intro, handleIntro, children}) {
 
@@ -11,6 +12,8 @@ export default function Layout({ intro, handleIntro, children}) {
     const handleMenu = () => {
         setIsMenuOpen(prevState => !prevState)
     }
+
+    const {data} = useSession()
 
     return(
         <div className={styles.container}>
@@ -37,15 +40,21 @@ export default function Layout({ intro, handleIntro, children}) {
                 <div className={styles['logo-container']}>
                     <h1 className={styles['nav-logo']}>Discord</h1> In Time
                 </div>
-                <svg className={styles.menu} width='60px' height='60px' fill='#EBEBEB'  onClick={handleMenu}>
+                <svg className={styles.menu} width='60px' height='60px' fill='#EBEBEB' onClick={handleMenu}>
                     <rect width={'30px'} height='3px' y='18px'></rect>
                     <rect width={'30px'} height='3px' y='27px'></rect>
                     <rect width={'30px'} height='3px' y='36px'></rect>
                 </svg>
-                {intro.isIntro ? 
-                    <div className={styles.show} onClick={() => handleIntro()}><i className={`uil uil-times-circle ${styles.intro}`}></i></div>:
-                    <div onClick={() => handleIntro()}><i className={`uil uil-question-circle ${styles.intro}`}></i></div>
-                }
+                <div className={styles.user}>
+                    {data? 
+                        <button className={styles.login} onClick={() => signOut()}>Sign out</button>:
+                        <button className={styles.login} onClick={() => signIn('discord')}>Login</button>
+                    }
+                    {intro.isIntro ? 
+                        <div className={styles.show} onClick={() => handleIntro()}><i className={`uil uil-times-circle ${styles.intro}`}></i></div>:
+                        <div onClick={() => handleIntro()}><i className={`uil uil-question-circle ${styles.intro}`}></i></div>
+                    }
+                </div>
             </nav>
             <div className={styles['body-container']}>
                 <aside className={styles.sidebar} aria-expanded={isMenuOpen}>

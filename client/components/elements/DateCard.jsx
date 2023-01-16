@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
 export default function DateCard({id, name, description, timestamp, handleCurrentDate}) {
-    
+
     return(
         <StyledCard onClick={() => handleCurrentDate(id)}>
-            <StyledName>{name}</StyledName>
-            <StyledDescription>{description}</StyledDescription>
+            <div>
+                <StyledName>{name}</StyledName>
+                <StyledDescription>{description}</StyledDescription>
+            </div>
             <StyledTimestamp>{timestamp}</StyledTimestamp>
         </StyledCard>
     )
@@ -18,6 +20,9 @@ const StyledCard = styled.div`
     padding: 1em;
     min-height:200px;
     max-height:300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     :hover {
         box-shadow: 0 5px 15px rgba(0,0,0, 0.4);
